@@ -1,0 +1,5 @@
+./Allclean
+blockMesh
+icoFoam > log &
+cat log
+touch try7.foam
