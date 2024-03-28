@@ -2,4 +2,4 @@
 blockMesh
 icoFoam > log &
 cat log
-touch try7.foam
+touch laminer_Bl.foam
