@@ -34,7 +34,7 @@ divSchemes
     div(phi,omega)  Gauss limitedLinear 1;
     div(phi,R)      Gauss limitedLinear 1;
     div(R)          Gauss linear;
-    div(U)          Gauss linear;             // enables div function object
+//    div(U)          Gauss linear;             // enables div function object
     div(phi,nuTilda) Gauss limitedLinear 1;
     div((nuEff*dev2(T(grad(U))))) Gauss linear;
 }
