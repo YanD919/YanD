@@ -1,0 +1,25 @@
+./Allclean
+
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+
+
+runApplication blockMesh
+
+# decomposing to parallel
+runApplication decomposePar
+
+runParallel snappyHexMesh -overwrite
+
+restore0Dir -processor
+
+runParallel topoSet
+runParallel createPatch -overwrite
+runParallel checkMesh
+runParallel patchSummary
+
+
+touch refined_pipe.foam
+
+runParallel pisoFoam
+runApplication reconstructPar
