@@ -5,15 +5,14 @@ cd "${0%/*}" || exit                                # Run from this directory
 
 
 runApplication blockMesh
-restore0Dir
 decomposePar > log.meshDecomposePar
+restore0Dir -processor
 runParallel snappyHexMesh -overwrite
 runParallel topoSet
 runParallel createPatch -overwrite
 reconstructParMesh -constant -mergeTol 1E-06 > log.reconstructParMesh
 touch refined_pipe.foam
-
-
-#runApplication decomposePar
-#runParallel pisoFoam
-#runApplication reconstructPar
+restore0Dir
+runApplication decomposePar -force
+runParallel pisoFoam
+runApplication reconstructPar
