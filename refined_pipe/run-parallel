@@ -6,20 +6,17 @@ cd "${0%/*}" || exit                                # Run from this directory
 
 runApplication blockMesh
 
-# decomposing to parallel
-runApplication decomposePar
+runApplication snappyHexMesh -overwrite
 
-runParallel snappyHexMesh -overwrite
+restore0Dir
 
-restore0Dir -processor
-
-runParallel topoSet
-runParallel createPatch -overwrite
-runParallel checkMesh
-runParallel patchSummary
+runApplication topoSet
+runApplication createPatch -overwrite
 
 
 touch refined_pipe.foam
 
+
+runApplication decomposePar
 runParallel pisoFoam
 runApplication reconstructPar
