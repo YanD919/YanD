@@ -53,4 +53,44 @@ potentialFlow
     nNonOrthogonalCorrectors 3;
 }
 
+
+PIMPLE
+{
+    nNonOrthogonalCorrectors 2;
+    nCorrectors         3;
+    nOuterCorrectors    1000;
+
+    residualControl
+    {
+        U
+        {
+                tolerance  1e-5;
+                relTol      0;
+        }
+        p
+        {
+                tolerance  5e-4;
+                relTol      0;
+        }
+    }
+}
+
+relaxationFactors
+{
+    fields
+    {
+        p      0.4;
+        pFinal   1;
+    }
+    equations
+    {
+        "(U|k|epsilon|omega|R|nuTilda)"      0.4;
+        "(U|k|epsilon|omega|R|nuTilda)Final"   1;
+    }
+}
+
+
+
+
+
 // ************************************************************************* //
