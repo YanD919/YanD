@@ -14,9 +14,9 @@ runApplication topoSet
 runApplication createPatch -overwrite
 
 
-touch refined_pipe.foam
+touch pimplefoam_pipe.foam
 
 
 runApplication decomposePar
-runParallel pisoFoam
+runParallel pimpleFoam
 runApplication reconstructPar

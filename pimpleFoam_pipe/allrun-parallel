@@ -11,10 +11,10 @@ runParallel snappyHexMesh -overwrite
 runParallel topoSet
 runParallel createPatch -overwrite
 reconstructParMesh -constant -mergeTol 1E-06 > log.reconstructParMesh
-touch refined_pipe.foam
-rm -r log.pisoFoam
+touch pimplefoam_pipe.foam
+rm -r log.pimpleFoam
 
 restore0Dir
 runApplication decomposePar -force
-runParallel pisoFoam
+runParallel pimpleFoam
 runApplication reconstructPar
