@@ -41,7 +41,7 @@ divSchemes
 
 laplacianSchemes
 {
-    default         Gauss linear orthogonal;
+    default         Gauss linear limited corrected 0.5;
 }
 
 interpolationSchemes
@@ -51,8 +51,11 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         orthogonal;
+    default         corrected;
 }
 
-
+wallDist
+{
+    method          meshWave;
+}
 // ************************************************************************* //
