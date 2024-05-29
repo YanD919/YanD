@@ -10,32 +10,32 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    object      nut;
+    object      omega;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
+dimensions      [0 0 -1 0 0 0 0];
 
-internalField   uniform 0;
+internalField   uniform 22.4;
 
 boundaryField
 {
     wall
     {
-        type            nutUWallFunction;
-        value           uniform 0;
+        type            omegaWallFunction;
+        value           uniform 22.4;
     }
 
     topPatch
     {
-        type            calculated;
-	value           uniform 0;
+        type            zeroGradient;
     }
 
     bottomPatch
     {
-        type            calculated;
-	value           uniform 0;
+        type            turbulentMixingLengthFrequencyInlet;
+        mixingLength    7e-4;
+        value           $internalField;
     }
 }
 

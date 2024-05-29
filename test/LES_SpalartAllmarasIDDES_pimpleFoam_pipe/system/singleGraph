@@ -5,38 +5,22 @@
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
-FoamFile
+
+singleGraph
 {
-    version     2.0;
-    format      ascii;
-    class       volScalarField;
-    object      nut;
-}
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+    start   (0.0 -0.5 20.0);
+    end     (0.0 0.5 20.0);
+    fields  (U);
 
-dimensions      [0 2 -1 0 0 0 0];
+    #includeEtc "caseDicts/postProcessing/graphs/sampleDict.cfg"
 
-internalField   uniform 0;
-
-boundaryField
-{
-    wall
+    setConfig
     {
-        type            nutUWallFunction;
-        value           uniform 0;
+        axis    distance;
     }
 
-    topPatch
-    {
-        type            calculated;
-	value           uniform 0;
-    }
-
-    bottomPatch
-    {
-        type            calculated;
-	value           uniform 0;
-    }
+    // Must be last entrdistance
+    #includeEtc "caseDicts/postProcessing/graphs/graph.cfg"
 }
 
 

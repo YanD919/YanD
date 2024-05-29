@@ -10,7 +10,7 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    object      nut;
+    object      nuTilda;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -22,22 +22,21 @@ boundaryField
 {
     wall
     {
-        type            nutUWallFunction;
-        value           uniform 0;
+        type            calculated;
+        value           $internalField;
     }
 
     topPatch
     {
         type            calculated;
-	value           uniform 0;
+        value           $internalField;
     }
 
     bottomPatch
     {
         type            calculated;
-	value           uniform 0;
+        value           $internalField;
     }
 }
-
 
 // ************************************************************************* //

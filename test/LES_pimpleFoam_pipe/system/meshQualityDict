@@ -9,35 +9,16 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    object      nut;
+    class       dictionary;
+    object      meshQualityDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
+// Include defaults parameters from master dictionary
+#includeEtc "caseDicts/meshQualityDict"
 
-internalField   uniform 0;
-
-boundaryField
-{
-    wall
-    {
-        type            nutUWallFunction;
-        value           uniform 0;
-    }
-
-    topPatch
-    {
-        type            calculated;
-	value           uniform 0;
-    }
-
-    bottomPatch
-    {
-        type            calculated;
-	value           uniform 0;
-    }
-}
+//- minFaceWeight (0 -> 0.5)
+minFaceWeight 0.02;
 
 
 // ************************************************************************* //

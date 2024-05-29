@@ -9,35 +9,14 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    object      nut;
+    class       dictionary;
+    object      transportProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
+transportModel  Newtonian;
 
-internalField   uniform 0;
-
-boundaryField
-{
-    wall
-    {
-        type            nutUWallFunction;
-        value           uniform 0;
-    }
-
-    topPatch
-    {
-        type            calculated;
-	value           uniform 0;
-    }
-
-    bottomPatch
-    {
-        type            calculated;
-	value           uniform 0;
-    }
-}
+nu              1.0e-6;
 
 
 // ************************************************************************* //

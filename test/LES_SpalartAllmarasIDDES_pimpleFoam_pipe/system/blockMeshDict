@@ -9,35 +9,64 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    object      nut;
+    class       dictionary;
+    object      blockMeshDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
+scale   1.0;
 
-internalField   uniform 0;
+vertices
+(
+    (-1 -1 -1.0)
+    (1 -1 -1.0)
+    (1 1 -1.0)
+    (-1 1 -1.0)
+    (-1 -1 41)
+    (1 -1 41)
+    (1 1 41)
+    (-1 1 41)
+);
 
-boundaryField
-{
-    wall
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (5 5 100) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    movingWall
     {
-        type            nutUWallFunction;
-        value           uniform 0;
+        type patch;
+        faces
+        (
+            (3 7 6 2)
+        );
     }
-
-    topPatch
+    fixedWalls
     {
-        type            calculated;
-	value           uniform 0;
+        type patch;
+        faces
+        (
+            (0 4 7 3)
+            (2 6 5 1)
+            (1 5 4 0)
+        );
     }
-
-    bottomPatch
+    frontAndBack
     {
-        type            calculated;
-	value           uniform 0;
+        type patch;
+        faces
+        (
+            (0 3 2 1)
+            (4 5 6 7)
+        );
     }
-}
+);
 
 
 // ************************************************************************* //
