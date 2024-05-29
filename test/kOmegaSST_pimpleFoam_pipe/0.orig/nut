@@ -22,7 +22,7 @@ boundaryField
 {
     wall
     {
-        type            calculated;
+        type            nutUwallFunction;
         value           $internalField;
     }
 

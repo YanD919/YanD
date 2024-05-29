@@ -67,8 +67,8 @@ potentialFlow
 PIMPLE
 {
     nNonOrthogonalCorrectors 1;
-    nCorrectors         1;
-    nOuterCorrectors    1000;
+    nCorrectors         3;
+    nOuterCorrectors    1;
 
     residualControl
     {
@@ -94,7 +94,7 @@ relaxationFactors
     }
     equations
     {
-        "(U|k|epsilon|omega|R|nuTilda)"      0.4;
+        "(U|k|epsilon|omega|R|nuTilda)"        1;
         "(U|k|epsilon|omega|R|nuTilda)Final"   1;
     }
 }
