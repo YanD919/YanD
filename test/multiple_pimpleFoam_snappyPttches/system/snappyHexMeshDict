@@ -17,7 +17,7 @@ FoamFile
 // Which of the steps to run
 castellatedMesh true;
 snap            true;
-addLayers       false;
+addLayers       true;
 
 
 // Geometry. Definition of all surfaces. All surfaces are of class
@@ -117,10 +117,10 @@ castellatedMeshControls
     // This is a featureEdgeMesh, read from constant/triSurface for now.
     features
     (
-        //{
-        //    file "someLine.eMesh";
-        //    level 2;
-        //}
+        {
+            file "cylinder.eMesh";
+            level 0;
+        }
     );
 
 
@@ -248,9 +248,9 @@ snapControls
 
     nFeatureSnapIter 10;
 
-    implicitFeatureSnap true;
+    implicitFeatureSnap false;
 
-    explicitFeatureSnap false;
+    explicitFeatureSnap true;
 
     multiRegionFeatureSnap false;
 
@@ -268,9 +268,9 @@ addLayersControls
     // Per final patch (so not geometry!) the layer information
     layers
     {
-        ".*"
+        wall
         {
-            nSurfaceLayers 3;
+            nSurfaceLayers 5;
         }
     }
 
