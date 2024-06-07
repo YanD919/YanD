@@ -1,0 +1,20 @@
+./Allclean
+
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+
+
+runApplication blockMesh
+runApplication surfaceFeatureExtract
+runApplication snappyHexMesh -overwrite
+
+restore0Dir
+
+transformPoints -scale "(0.001 0.001 0.001)"
+
+//polyDualMesh 75 -overwrite
+
+
+touch pipe.foam
+
+

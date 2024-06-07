@@ -1,0 +1,18 @@
+./Allclean
+
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+
+ideasUnvToFoam constant/triSurface/fullheatexchg_BL.unv
+
+//polyDualMesh 75 -overwrite
+
+restore0Dir
+
+transformPoints -scale "(0.001 0.001 0.001)"
+
+createPatch -overwrite
+
+touch salome.foam
+
+

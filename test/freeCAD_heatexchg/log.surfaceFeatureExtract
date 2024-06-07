@@ -1,0 +1,85 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2312                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _c39a0f64-20231220 OPENFOAM=2312 version=2312
+Arch   : "LSB;label=32;scalar=64"
+Exec   : surfaceFeatureExtract
+Date   : Jun 06 2024
+Time   : 19:06:14
+Host   : YanD
+PID    : 81098
+I/O    : uncollated
+Case   : /home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg
+nProcs : 1
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+Note: Feature line extraction only valid on closed manifold surfaces
+
+Reading surfaceFeatureExtractDict
+
+Surfaces     : fullheatexchg.obj
+Output       : fullheatexchg
+Load options : offset
+Write options: writeObj=yes writeVTK=off
+
+Statistics:
+Triangles    : 12780 in 1 region(s)
+Vertices     : 7442
+Bounding Box : (-35 -321.801 -50.9808) (46.6506 69.3013 34.9891)
+
+Constructing feature set from included angle 150
+Selecting edges based purely on geometric tests: no
+
+Initial Feature set:
+    points : 167
+    edges  : 3763
+    of which
+        region edges   : 2362
+        external edges : 376
+        internal edges : 1025
+
+Final Feature set:
+    points : 3644
+    of which
+        convex             : 0
+        concave            : 0
+        mixed              : 167
+        non-feature        : 3477
+    edges  : 3763
+    of which
+        external edges     : 376
+        internal edges     : 1025
+        flat edges         : 0
+        open edges         : 2362
+        multiply connected : 0
+
+Writing extendedFeatureEdgeMesh to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg.extendedFeatureEdgeMesh"
+
+Writing extendedEdgeMesh components to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg"
+Writing 0 convex feature points to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_convexFeaturePts.obj"
+Writing 0 concave feature points to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_concaveFeaturePts.obj"
+Writing 167 mixed feature points to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_mixedFeaturePts.obj"
+Writing 167 mixed feature point structure to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_mixedFeaturePtsStructure.obj"
+Writing 376 external edges to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_externalEdges.obj"
+Writing 1025 internal edges to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_internalEdges.obj"
+Writing 0 flat edges to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_flatEdges.obj"
+Writing 2362 open edges to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_openEdges.obj"
+Writing 0 multiple edges to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_multipleEdges.obj"
+Writing 2362 region edges to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_regionEdges.obj"
+Writing 3763 edge directions to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/extendedFeatureEdgeMesh/fullheatexchg_edgeDirections.obj"
+
+Writing featureEdgeMesh to "/home/yand/OpenFOAM/yand-v2312/run/github/yand_openfoam/test/freeCAD_heatexchg/constant/triSurface/fullheatexchg.eMesh"
+ExecutionTime = 0.04 s  ClockTime = 0 s
+
+End
+
